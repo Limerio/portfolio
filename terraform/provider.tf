@@ -1,4 +1,12 @@
 terraform {
+  cloud {
+    organization = "limerio"
+
+    workspaces {
+      name = "portfolio"
+    }
+  }
+
   required_providers {
     cloudflare = {
       source  = "cloudflare/cloudflare"
