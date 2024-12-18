@@ -1,28 +1,26 @@
 {
-  "name": "portfolio",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "14.1.4",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-type-animation": "^3.2.0"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
-  }
+	"name": "portfolio",
+	"author": "Limerio",
+	"private": true,
+	"version": "1.0.0",
+	"scripts": {
+		"dev": "rsbuild dev --open",
+		"build": "rsbuild build",
+		"preview": "rsbuild preview"
+	},
+	"dependencies": {
+		"motion": "^11.15.0",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0"
+	},
+	"devDependencies": {
+		"@rsbuild/core": "^1.1.8",
+		"@rsbuild/plugin-babel": "^1.0.3",
+		"@rsbuild/plugin-react": "^1.0.7",
+		"@types/react": "^19.0.0",
+		"@types/react-dom": "^19.0.0",
+		"babel-plugin-react-compiler": "^19.0.0-beta-201e55d-20241215",
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5.7.2"
+	}
 }
