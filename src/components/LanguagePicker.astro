@@ -1,0 +1,41 @@
+---
+import { LANGUAGES_TRANSLATIONS } from "@/constants";
+import { getLangFromURL } from "@/i18n";
+
+const lang = getLangFromURL();
+---
+
+<div class="language-picker">
+  <select class="language-select" id="languageSelect">
+    {
+      Object.entries(LANGUAGES_TRANSLATIONS).map(([langCode, langName]) => (
+        <option value={langCode} selected={lang === langCode}>
+          {langName}
+        </option>
+      ))
+    }
+  </select>
+</div>
+
+<script>
+  import { LANGUAGES } from "@/constants";
+
+  const languageSelect = document.getElementById(
+    "languageSelect",
+  ) as HTMLSelectElement;
+
+  languageSelect?.addEventListener("change", (e) => {
+    const target = e.target as HTMLSelectElement;
+    const selectedLang = target.value;
+    const currentPath = window.location.pathname;
+
+    const pathWithoutLang = currentPath.replace(/^\/(en|fr)/, "") || "/";
+
+    const newPath =
+      selectedLang === LANGUAGES.en
+        ? pathWithoutLang
+        : `/${selectedLang}${pathWithoutLang}`;
+
+    window.location.href = newPath;
+  });
+</script>

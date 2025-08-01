@@ -1,0 +1,48 @@
+---
+import { ViewTransitions } from "astro:transitions";
+import Header from "@/components/Header.astro";
+import "@/styles/globals.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: string;
+}
+
+const { title, description, lang } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="full stack developer, web development, portfolio, react, node.js, typescript"
+    />
+    <meta name="author" content="Limerio" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
