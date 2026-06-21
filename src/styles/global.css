@@ -1,0 +1,40 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-surface: var(--surface);
+  --color-active: var(--active);
+  --color-active-foreground: var(--active-foreground);
+  --shadow-soft: 0 18px 55px var(--shadow);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: #f7f5ef;
+    --foreground: #181612;
+    --muted: #706a60;
+    --line: rgba(24, 22, 18, 0.14);
+    --surface: rgba(255, 255, 255, 0.4);
+    --active: #181612;
+    --active-foreground: #f7f5ef;
+    --shadow: rgba(24, 22, 18, 0.08);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --background: #11100d;
+      --foreground: #f4efe4;
+      --muted: #b9b0a0;
+      --line: rgba(244, 239, 228, 0.16);
+      --surface: rgba(255, 255, 255, 0.06);
+      --active: #f4efe4;
+      --active-foreground: #11100d;
+      --shadow: rgba(0, 0, 0, 0.32);
+    }
+  }
+}
