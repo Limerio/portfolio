@@ -1,0 +1,122 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	lang: "en" | "fr" | "ja";
+	title: string;
+	role: string;
+	intro: string;
+	avatarAlt: string;
+	emailLabel: string;
+	githubLabel: string;
+}
+
+const { lang, title, role, intro, avatarAlt, emailLabel, githubLabel } = Astro.props;
+
+const languageLinks = [
+	{ code: "en", label: "🇬🇧", name: "English", href: "/" },
+	{ code: "fr", label: "🇫🇷", name: "Français", href: "/fr/" },
+	{ code: "ja", label: "🇯🇵", name: "日本語", href: "/ja/" },
+];
+
+const avatarUrl = "https://avatars.githubusercontent.com/u/44976231?v=4";
+const emailHref = "mailto:contact@limerio.dev";
+const githubHref = "https://github.com/Limerio";
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={intro} />
+
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={intro} />
+		<meta name="og:image" content={avatarUrl} />
+		<meta name="og:url" content={Astro.url.toString()} />
+		<meta name="og:type" content="website" />
+		<meta name="og:locale" content={lang} />
+		<meta name="og:site_name" content="Limerio" />
+		<meta name="og:image:alt" content={avatarAlt} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={intro} />
+		<meta name="twitter:image" content={avatarUrl} />
+		<meta name="twitter:image:alt" content={avatarAlt} />
+		<title>{title}</title>
+	</head>
+	<body class="min-h-screen bg-background text-foreground antialiased">
+		<div class="grid min-h-screen p-4 sm:p-5">
+			<nav
+				class="fixed right-4 top-4 z-10 flex gap-1 rounded-full border border-line bg-surface p-1 shadow-soft backdrop-blur-2xl sm:right-5 sm:top-5"
+				aria-label="Language"
+			>
+				{
+					languageLinks.map((language) => (
+						<a
+							href={language.href}
+							aria-label={language.name}
+							aria-current={language.code === lang ? "page" : undefined}
+							class:list={[
+								"inline-flex min-h-8 min-w-9 items-center justify-center rounded-full text-sm no-underline",
+								language.code === lang
+									? "bg-active text-active-foreground"
+									: "text-muted",
+							]}
+						>
+							{language.label}
+						</a>
+					))
+				}
+			</nav>
+
+			<main
+				class="m-auto grid w-full max-w-124 justify-items-start gap-5 py-12 sm:py-16"
+			>
+				<img
+					class="size-[clamp(5.5rem,14vw,7.5rem)] rounded-[30%] border border-line bg-surface shadow-soft"
+					src={avatarUrl}
+					alt={avatarAlt}
+					width="120"
+					height="120"
+				/>
+
+				<section aria-labelledby="profile-title">
+					<p class="mb-2.5 text-sm font-semibold tracking-[0.02em] text-muted">
+						{role}
+					</p>
+					<h1
+						id="profile-title"
+						class="m-0 text-[clamp(3.25rem,10vw,5rem)] leading-[0.9] tracking-[-0.075em]"
+					>
+						Limerio
+					</h1>
+					<p
+						class="mt-3.5 max-w-124 text-[clamp(1rem,2vw,1.18rem)] leading-[1.45] tracking-tight text-muted"
+					>
+						{intro}
+					</p>
+
+					<div class="mt-5 flex flex-wrap gap-3" aria-label="Profile links">
+						<a
+							class="text-sm font-bold underline decoration-[0.08em] underline-offset-[0.22em]"
+							href={githubHref}
+							rel="me noopener noreferrer"
+						>
+							{githubLabel}
+						</a>
+						<a
+							class="text-sm font-bold underline decoration-[0.08em] underline-offset-[0.22em]"
+							href={emailHref}
+						>
+							{emailLabel}
+						</a>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>
