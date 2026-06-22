@@ -1,0 +1,12 @@
+{
+  "serverInfo": {
+    "name": "limerio-portfolio",
+    "version": "1.0.0"
+  },
+  "endpoint": "/mcp",
+  "capabilities": {
+    "tools": false,
+    "resources": false,
+    "prompts": false
+  }
+}
