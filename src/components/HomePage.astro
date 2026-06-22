@@ -21,7 +21,8 @@ const languageLinks = [
 ];
 
 const avatarUrl = "https://avatars.githubusercontent.com/u/44976231?v=4";
-const emailHref = "mailto:contact@limerio.dev";
+const emailUser = "contact";
+const emailDomain = "limerio.dev";
 const githubHref = "https://github.com/Limerio";
 ---
 
@@ -115,8 +116,11 @@ const githubHref = "https://github.com/Limerio";
 							{githubLabel}
 						</a>
 						<a
+							id="email"
 							class="text-sm font-bold underline decoration-[0.08em] underline-offset-[0.22em]"
-							href={emailHref}
+							href="#"
+							data-u={emailUser}
+							data-d={emailDomain}
 							aria-label="Send email"
 						>
 							{emailLabel}
@@ -125,5 +129,6 @@ const githubHref = "https://github.com/Limerio";
 				</section>
 			</main>
 		</div>
+		<script is:inline src="/email.js"></script>
 	</body>
 </html>
