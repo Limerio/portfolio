@@ -1,0 +1,13 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://limerio.dev",
+      "service-doc": [
+        {
+          "href": "https://limerio.dev",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
