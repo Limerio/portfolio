@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
 
 interface Props {
 	lang: "en" | "fr" | "ja";
@@ -28,7 +29,7 @@ const githubHref = "https://github.com/Limerio";
 <html lang={lang}>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
@@ -76,12 +77,13 @@ const githubHref = "https://github.com/Limerio";
 			<main
 				class="m-auto grid w-full max-w-124 justify-items-start gap-5 py-12 sm:py-16"
 			>
-				<img
+				<Image
 					class="size-[clamp(5.5rem,14vw,7.5rem)] rounded-[30%] border border-line bg-surface shadow-soft"
 					src={avatarUrl}
 					alt={avatarAlt}
 					width="120"
 					height="120"
+					loading="eager"
 				/>
 
 				<section aria-labelledby="profile-title">
