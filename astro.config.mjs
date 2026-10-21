@@ -19,7 +19,7 @@ export default defineConfig({
         "default-src 'none'",
         "img-src 'self' https://avatars.githubusercontent.com data:",
         "font-src 'self'",
-        "connect-src https://cloudflareinsights.com",
+        'connect-src https://cloudflareinsights.com',
         "frame-ancestors 'none'",
         "base-uri 'self'",
         "form-action 'none'",
@@ -30,7 +30,7 @@ export default defineConfig({
     inlineStylesheets: 'auto',
   },
   image: {
-    domains: ["avatars.githubusercontent.com"],
+    domains: ['avatars.githubusercontent.com'],
   },
   vite: {
     plugins: [tailwindcss()],
